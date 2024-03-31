@@ -1,12 +1,11 @@
 Moduly:
     - Matematická knižnica
         - Pridelené: xlorenk00, xprochd00
-        - Pžiadavky:
+        - Požiadavky:
             - Matematické operácie:
                 - súčet, rozdiel, podiel, súčin
                 - faktoriál (celočíselný aj racionálny), všeobecne mocninny, všeobecná odmocnina
                 - sin, cos, tg, cotg
-		- modulo
             - Práca s PI a e
             - Vracia:
                 - Výsledok vo formáte čísla (neobsahuje PI alebo e)
