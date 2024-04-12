@@ -1,26 +1,40 @@
-# -*- coding: utf-8 -*-
+""
+#Project: IVS - Calculator
+# File: calculator.py
+# Author: Patrik Dekýš (xdekysp00@stud.fit.vutbr.cz)
+
+# Description: This file contains the GUI of the calculator application. The GUI
+# takes inserted values as who string and evaluates them using the eval_expr(), 
+# which is a function from the mathematical_library.py file.
+""
+
+#===============================START-OF-FILE===================================
 
 ################################################################################
 ## Form generated from reading UI file 'CalculatorbdnVIV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.2
-##
-## Edited by: Patrik Dekýš (xdekysp00@stud.fit.vutbr.cz)
 ################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect, Qt)
+from PySide6.QtGui import (QCursor, QFont)
 from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QMainWindow,
-    QPushButton, QSizePolicy, QStatusBar, QWidget)
-from mathematical_library import eval_expr
+    QPushButton, QStatusBar, QWidget)
+from mathematical_library import eval_expr # Function for evaluating the expressions
 
 class Ui_MainWindow(object):
+    """
+    @class Ui_MainWindow
+    @brief This class represents the main window of the application.
+    """
+
     def setupUi(self, MainWindow):
+        """
+        @fn setupUi
+        @brief Sets up the UI for the main window.
+        @param MainWindow The main window for which to set up the UI.
+        """
+
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(400, 500)
@@ -38,6 +52,8 @@ class Ui_MainWindow(object):
         self.Display.setFrameShadow(QFrame.Sunken)
         self.Display.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
         self.Display.setMargin(10)
+
+        # Buttons
         self.Btn_No_1 = QPushButton(self.centralwidget, clicked = lambda: self.press_it('1'))
         self.Btn_No_1.setObjectName(u"Btn_No_1")
         self.Btn_No_1.setGeometry(QRect(30, 200, 60, 60))
@@ -181,8 +197,8 @@ class Ui_MainWindow(object):
         self.Btn_Cos.setFont(font1)
         self.Btn_Cos.setAutoDefault(False)
         self.Btn_Cos.setFlat(False)
-        self.Btn_Tg = QPushButton(self.centralwidget, clicked = lambda: self.press_it('tg'))
-        self.Btn_Tg.setObjectName(u"Btn_Tg")
+        self.Btn_Tg = QPushButton(self.centralwidget, clicked = lambda: self.press_it('tan'))
+        self.Btn_Tg.setObjectName(u"Btn_Tan")
         self.Btn_Tg.setGeometry(QRect(310, 140, 60, 60))
         self.Btn_Tg.setFont(font1)
         self.Btn_Tg.setAutoDefault(False)
@@ -194,12 +210,14 @@ class Ui_MainWindow(object):
         self.Btn_Point.setAutoDefault(False)
         self.Btn_Point.setFlat(False)
         MainWindow.setCentralWidget(self.centralwidget)
+
+        # Status bar
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
         MainWindow.setStatusBar(self.statusbar)
-
         self.retranslateUi(MainWindow)
 
+        # Set default status of buttons
         self.Btn_No_1.setDefault(False)
         self.Btn_No_2.setDefault(False)
         self.Btn_No_3.setDefault(False)
@@ -223,25 +241,29 @@ class Ui_MainWindow(object):
         self.Btn_Pi_Euler.setDefault(False)
         self.Btn_Sin.setDefault(False)
         self.Btn_Cos.setDefault(False)
-        self.Btn_Tg.setDefault(False)
+        self.Btn_Tan.setDefault(False)
         self.Btn_Point.setDefault(False)
-
-
         QMetaObject.connectSlotsByName(MainWindow)
-    # setupUi
+
+    # Function for handling the button press
     History = ''
     Displayed = '0'
     def press_it(self, pressed):
+        """
+        @fn press_it
+        @brief Handles the button press.
+        @param pressed The button that was pressed.
+        @return The displayed value.
+        """
+
         global Displayed, History
         if pressed == 'AC':
             self.Displayed = '0'
             self.Display.setText(self.Displayed)
         elif pressed == 'Del':
             self.Displayed = self.Display.text()
-            if self.Displayed[-3:] in ['cos', 'sin']:
+            if self.Displayed[-3:] in ['cos', 'sin', 'tan']:
                 self.Displayed = self.Displayed[:-3]
-            elif self.Displayed[-2:] == 'tg':
-                self.Displayed = self.Displayed[:-2]
             else:
                 self.Displayed = self.Displayed[:-1]
             self.Display.setText(self.Displayed)
@@ -255,7 +277,14 @@ class Ui_MainWindow(object):
             self.Display.setText(self.Displayed)
         return self.Displayed
 
+    # Function for translating the GUI
     def retranslateUi(self, MainWindow):
+        """
+        @fn retranslateUi
+        @brief Translates the GUI.
+        @param MainWindow The main window to translate.
+        """
+
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Calculator", None))
         self.Display.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.Btn_No_1.setText(QCoreApplication.translate("MainWindow", u"1", None))
@@ -281,10 +310,10 @@ class Ui_MainWindow(object):
         self.Btn_Pi_Euler.setText(QCoreApplication.translate("MainWindow", u"\u03c0/e", None))
         self.Btn_Sin.setText(QCoreApplication.translate("MainWindow", u"sin", None))
         self.Btn_Cos.setText(QCoreApplication.translate("MainWindow", u"cos", None))
-        self.Btn_Tg.setText(QCoreApplication.translate("MainWindow", u"tg", None))
+        self.Btn_Tan.setText(QCoreApplication.translate("MainWindow", u"tan", None))
         self.Btn_Point.setText(QCoreApplication.translate("MainWindow", u".", None))
-    # retranslateUi
 
+# Main function for running the GUI
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
