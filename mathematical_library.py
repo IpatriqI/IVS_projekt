@@ -114,5 +114,4 @@ def eval_expr(expr):
         result = 0
     return str(int(result) if result == int(result) else result)
 
-print(eval_expr("5√10"))
 
