@@ -1,5 +1,5 @@
-import re
 import math
+import re
 
 # Definícia funkcií
 def scitanie(x, y):
@@ -46,13 +46,13 @@ def eval_expr(expr):
     The expression respects the precedence of operators.
     """
     # Definice konstant
-    constants = {'pi': math.pi, 'e': math.e}
+    constants = {'π': math.pi, 'e': math.e}
 
     # Odstránenie medzier z výrazu
     expr = expr.replace(" ", "")
 
     # Rozdelenie výrazu na čísla a operátory
-    tokens = re.findall(r"\d+\.?\d*|[-+*/^!]|sqrt|sin|cos|tan|cot|pi|e", expr)
+    tokens = re.findall(r"\d+\.?\d*|[-+*/^!√]|sin|cos|tan|cot|π|e", expr)
 
     # Konverzia čísel z reťazcov na floaty
     tokens = [float(token) if token.replace('.','',1).isdigit() else token for token in tokens]
@@ -76,12 +76,13 @@ def eval_expr(expr):
         elif tokens[i] == '^':
             result = mocnina(tokens[i-1], tokens[i+1])
             tokens[i-1:i+2] = [result]
-        elif tokens[i] == 'sqrt':
-            result = odmocnina(tokens[i+1], tokens[i+2])
-            tokens[i:i+3] = [result]
+        elif tokens[i] == '√':
+            result = odmocnina(tokens[i+1], tokens[i-1])
+            tokens[i-1:i+2] = [result]
         elif tokens[i] in constants:
             tokens[i] = constants[tokens[i]]
         i += 1
+
     # Spracovanie násobenia a delenia
     i = 0
     while i < len(tokens):
@@ -106,6 +107,9 @@ def eval_expr(expr):
             i -= 1
         i += 1
 
-    return tokens[0]
+    # Vraciame vysledok ako string, ak je celé číslo, zobrazuje bez desatinnej časti
+    result = tokens[0]
+    return str(int(result) if result == int(result) else result)
 
-print(eval_expr("sqrt(16, 2) + sin(30) * 5 - 3! + cot(45) + e"))
+print(eval_expr("2√4 + sin30 * 5 - 3! + cot45 + e - 2^8"))
+
