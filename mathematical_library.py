@@ -108,8 +108,10 @@ def eval_expr(expr):
         i += 1
 
     # Vraciame vysledok ako string, ak je celé číslo, zobrazuje bez desatinnej časti
-    result = tokens[0]
+    result = round(tokens[0],6)
+
+    if abs(result) < 1e-6:
+        result = 0
     return str(int(result) if result == int(result) else result)
 
-print(eval_expr("2√4 + sin30 * 5 - 3! + cot45 + e - 2^8"))
 
