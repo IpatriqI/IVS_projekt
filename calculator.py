@@ -370,7 +370,7 @@ class Ui_MainWindow(object):
                 self.Display.setText(self.History)
                 self.Displayed = self.History
             except Exception as e:
-                self.Display.setText("Error: " + str(e))
+                self.Display.setText(str(e))
         else:
             if self.Displayed == '0':
                 self.Displayed = ''
