@@ -249,10 +249,10 @@ class Ui_MainWindow(object):
 "	border-radius: 7px;\n"
 "}\n"
 "QScrollBar::handle:horizontal:hover{	\n"
-"	background-color: rgb(255, 157, 9);\n"
+"	background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QScrollBar::handle:horizontal:pressed {	\n"
-"	background-color: rgb(255, 255, 255);\n"
+"	background-color: rgb(255, 157, 9);\n"
 "}\n"
 "\n"
 "\n"
@@ -303,30 +303,12 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         MainWindow.setCentralWidget(self.centralwidget)
 
-        # TODO: Key press event
-        def keyPressEvent(self, event):
-            key = event.key()
 
-            if key in [Qt.Key_0, Qt.Key_1, Qt.Key_2, Qt.Key_3, Qt.Key_4, Qt.Key_5, Qt.Key_6, Qt.Key_7, Qt.Key_8, Qt.Key_9]:
-                self.press_it(str(key - Qt.Key_0))
-            elif key == Qt.Key_Plus:
-                self.press_it('+')
-            elif key == Qt.Key_Minus:
-                self.press_it('-')
-            elif key == Qt.Key_Asterisk:
-                self.press_it('*')
-            elif key == Qt.Key_Slash:
-                self.press_it('/')
-            elif key == Qt.Key_Equal:
-                self.press_it('=')
-            elif key == Qt.Key_Period:
-                self.press_it('.')
-            elif key == Qt.Key_Enter or key == Qt.Key_Return:
-                self.press_it('=')
-            elif key == Qt.Key_Backspace:
-                self.press_it('Del')
-            else:
-                super().keyPressEvent(event)
+
+        # TODO: Key press event
+        #def keyPressEvent(self, event):
+            
+
 
         self.retranslateUi(MainWindow)
 
