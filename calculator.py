@@ -373,7 +373,8 @@ class Ui_MainWindow(object):
                 self.Display.setText(str(e))
         else:
             if self.Displayed == '0':
-                self.Displayed = ''
+                if pressed != '.':
+                    self.Displayed = ''
             self.Displayed += pressed
             self.Display.setText(self.Displayed)
         return self.Displayed
