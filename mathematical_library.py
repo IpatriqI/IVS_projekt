@@ -35,6 +35,8 @@ def cos(x):
     return math.cos(math.radians(x))
 
 def tan(x):
+    if x % 180 == 90:
+         raise ValueError("Nedefinovana hodnota")
     return math.tan(math.radians(x))
 
 def cot(x):
@@ -113,5 +115,4 @@ def eval_expr(expr):
     if abs(result) < 1e-6:
         result = 0
     return str(int(result) if result == int(result) else result)
-
 
