@@ -1,5 +1,6 @@
 import math
 import re
+import sys
 
 # Definícia funkcií
 def scitanie(x, y):
@@ -13,10 +14,12 @@ def nasobenie(x, y):
 
 def delenie(x, y):
     if y == 0:
-        raise ValueError("Nulou delit nemozno")
+        raise ValueError("Math Error")
     return x / y
 
 def faktorial(x):
+    if x >= 1000:
+        raise ValueError("Math Error")
     if x == 0:
         return 1
     else:
@@ -36,7 +39,7 @@ def cos(x):
 
 def tan(x):
     if x % 180 == 90:
-         raise ValueError("Nedefinovana hodnota")
+         raise ValueError("Math Error")
     return math.tan(math.radians(x))
 
 def cot(x):
@@ -111,8 +114,8 @@ def eval_expr(expr):
 
     # Vraciame vysledok ako string, ak je celé číslo, zobrazuje bez desatinnej časti
     result = round(tokens[0],6)
-
+    if result > sys.maxsize:
+        raise ValueError("Math Error")
     if abs(result) < 1e-6:
         result = 0
     return str(int(result) if result == int(result) else result)
-
