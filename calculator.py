@@ -365,9 +365,12 @@ class Ui_MainWindow(object):
                 self.Displayed = '0'
             self.Display.setText(self.Displayed)
         elif pressed == '=':
-            self.History = eval_expr(self.Displayed)
-            self.Display.setText(self.History)
-            self.Displayed = self.History
+            try:
+                self.History = eval_expr(self.Displayed)
+                self.Display.setText(self.History)
+                self.Displayed = self.History
+            except Exception as e:
+                self.Display.setText("Error: " + str(e))
         else:
             if self.Displayed == '0':
                 self.Displayed = ''
