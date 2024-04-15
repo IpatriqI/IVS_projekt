@@ -303,13 +303,6 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         MainWindow.setCentralWidget(self.centralwidget)
 
-
-
-        # TODO: Key press event
-        #def keyPressEvent(self, event):
-            
-
-
         self.retranslateUi(MainWindow)
 
         # Set default status of buttons
@@ -339,8 +332,55 @@ class Ui_MainWindow(object):
         self.Btn_Tan.setDefault(False)
         self.Btn_Point.setDefault(False)
         QMetaObject.connectSlotsByName(MainWindow)
+        MainWindow.keyPressEvent = self.keyPressEvent # Enable key press event handling
 
-    # Function for handling the button press
+    # Function for handling the button press - by keyboard
+    def keyPressEvent(self, event):
+        """
+        Handle the key press event.
+
+        This function is triggered when a key is pressed. It maps the key press event to the corresponding calculator button.
+        For example, if the '0' key is pressed, it is as if the '0' button on the calculator was pressed.
+
+        @param event: The key press event to handle.
+        """
+
+        key = event.key()
+        if key == Qt.Key_0:
+            self.press_it('0')
+        elif key == Qt.Key_1:
+            self.press_it('1')
+        elif key == Qt.Key_2:
+            self.press_it('2')
+        elif key == Qt.Key_3:
+            self.press_it('3')
+        elif key == Qt.Key_4:
+            self.press_it('4')
+        elif key == Qt.Key_5:
+            self.press_it('5')
+        elif key == Qt.Key_6:
+            self.press_it('6')
+        elif key == Qt.Key_7:
+            self.press_it('7')
+        elif key == Qt.Key_8:
+            self.press_it('8')
+        elif key == Qt.Key_9:
+            self.press_it('9')
+        elif key == Qt.Key_Plus:
+            self.press_it('+')
+        elif key == Qt.Key_Minus:
+            self.press_it('-')
+        elif key == Qt.Key_Asterisk:
+            self.press_it('*')
+        elif key == Qt.Key_Slash:
+            self.press_it('/')
+        elif key == Qt.Key_Enter or key == Qt.Key_Equal:
+            self.press_it('=')
+        elif key == Qt.Key_Escape:
+            self.press_it('AC')
+
+
+    # Function for handling the button press - by click
     History = ''
     Displayed = '0'
     def press_it(self, pressed):
