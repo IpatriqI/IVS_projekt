@@ -374,12 +374,21 @@ class Ui_MainWindow(object):
             self.press_it('*')
         elif key == Qt.Key_Slash:
             self.press_it('/')
+        elif key == Qt.Key_Exclam:
+            self.press_it('!')
+        elif key == Qt.Key_Period:
+            self.press_it('.')
+        elif key == Qt.Key_P:
+            self.press_it('\u03c0')
+        elif key == Qt.Key_AsciiCircum: # Only US keyboard layout
+            self.press_it('^')
         elif key == Qt.Key_Enter or key == Qt.Key_Equal or key == Qt.Key_Return:
             self.press_it('=')
         elif key == Qt.Key_Escape:
             self.press_it('AC')
         elif key == Qt.Key_Backspace: 
             self.press_it('Del')
+        
 
     # Function for handling the button press - by click
     History = ''
