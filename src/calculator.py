@@ -1,5 +1,5 @@
 ""
-#Project: IVS - Calculator
+# Project: IVS - Calculator
 # File: calculator.py
 # Author: Patrik Dekýš (xdekysp00@stud.fit.vutbr.cz)
 
@@ -48,13 +48,13 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
 
         # Buttons
-        self.Btn_No_1 = QPushButton(self.centralwidget, clicked = lambda: self.press_it('1'))
-        self.Btn_No_1.setObjectName(u"Btn_No_1")
-        self.Btn_No_1.setGeometry(QRect(30, 210, 60, 60))
         font = QFont()
         font.setFamilies([u"Comic Sans MS"])
         font.setPointSize(20)
         font.setBold(False)
+        self.Btn_No_1 = QPushButton(self.centralwidget, clicked = lambda: self.press_it('1'))
+        self.Btn_No_1.setObjectName(u"Btn_No_1")
+        self.Btn_No_1.setGeometry(QRect(30, 210, 60, 60))
         self.Btn_No_1.setFont(font)
         self.Btn_No_1.setStyleSheet(u"color: white;background-color: rgb(63, 63, 63);border-radius: 10px;")
         self.Btn_No_1.setAutoDefault(False)
@@ -374,11 +374,12 @@ class Ui_MainWindow(object):
             self.press_it('*')
         elif key == Qt.Key_Slash:
             self.press_it('/')
-        elif key == Qt.Key_Enter or key == Qt.Key_Equal:
+        elif key == Qt.Key_Enter or key == Qt.Key_Equal or key == Qt.Key_Return:
             self.press_it('=')
         elif key == Qt.Key_Escape:
             self.press_it('AC')
-
+        elif key == Qt.Key_Backspace: 
+            self.press_it('Del')
 
     # Function for handling the button press - by click
     History = ''
