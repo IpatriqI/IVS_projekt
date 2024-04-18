@@ -50,72 +50,75 @@ def eval_expr(expr):
     Evaluates a mathematical expression provided as a string without parentheses.
     The expression respects the precedence of operators.
     """
-    # Definice konstant
-    constants = {'π': math.pi, 'e': math.e}
+    try:
+        # Definice konstant
+        constants = {'π': math.pi, 'e': math.e}
 
-    # Odstránenie medzier z výrazu
-    expr = expr.replace(" ", "")
+        # Odstránenie medzier z výrazu
+        expr = expr.replace(" ", "")
 
-    # Rozdelenie výrazu na čísla a operátory
-    tokens = re.findall(r"\d+\.?\d*|[-+*/^!√]|sin|cos|tan|cot|π|e", expr)
+        # Rozdelenie výrazu na čísla a operátory
+        tokens = re.findall(r"\d+\.?\d*|[-+*/^!√]|sin|cos|tan|cot|π|e", expr)
 
-    # Konverzia čísel z reťazcov na floaty
-    tokens = [float(token) if token.replace('.','',1).isdigit() else token for token in tokens]
+        # Konverzia čísel z reťazcov na floaty
+        tokens = [float(token) if token.replace('.','',1).isdigit() else token for token in tokens]
 
-    # Spracovani goniometrickych funkcii, faktorialu, mocnin a odmocnin
-    i = 0
-    while i < len(tokens):
-        if tokens[i] in ['sin', 'cos', 'tan', 'cot']:
-            if tokens[i] == 'sin':
-                result = sin(tokens[i+1])
-            elif tokens[i] == 'cos':
-                result = cos(tokens[i+1])
-            elif tokens[i] == 'tan':
-                result = tan(tokens[i+1])
-            elif tokens[i] == 'cot':
-                result = cot(tokens[i+1])
-            tokens[i:i+2] = [result]
-        elif tokens[i] == '!':
-            result = faktorial(tokens[i-1])
-            tokens[i-1:i+1] = [result]
-        elif tokens[i] == '^':
-            result = mocnina(tokens[i-1], tokens[i+1])
-            tokens[i-1:i+2] = [result]
-        elif tokens[i] == '√':
-            result = odmocnina(tokens[i+1], tokens[i-1])
-            tokens[i-1:i+2] = [result]
-        elif tokens[i] in constants:
-            tokens[i] = constants[tokens[i]]
-        i += 1
+        # Spracovani goniometrickych funkcii, faktorialu, mocnin a odmocnin
+        i = 0
+        while i < len(tokens):
+            if tokens[i] in ['sin', 'cos', 'tan', 'cot']:
+                if tokens[i] == 'sin':
+                    result = sin(tokens[i+1])
+                elif tokens[i] == 'cos':
+                    result = cos(tokens[i+1])
+                elif tokens[i] == 'tan':
+                    result = tan(tokens[i+1])
+                elif tokens[i] == 'cot':
+                    result = cot(tokens[i+1])
+                tokens[i:i+2] = [result]
+            elif tokens[i] == '!':
+                result = faktorial(tokens[i-1])
+                tokens[i-1:i+1] = [result]
+            elif tokens[i] == '^':
+                result = mocnina(tokens[i-1], tokens[i+1])
+                tokens[i-1:i+2] = [result]
+            elif tokens[i] == '√':
+                result = odmocnina(tokens[i+1], tokens[i-1])
+                tokens[i-1:i+2] = [result]
+            elif tokens[i] in constants:
+                tokens[i] = constants[tokens[i]]
+            i += 1
 
-    # Spracovanie násobenia a delenia
-    i = 0
-    while i < len(tokens):
-        if tokens[i] in ['*', '/']:
-            if tokens[i] == '*':
-                result = nasobenie(tokens[i-1], tokens[i+1])
-            else:
-                result = delenie(tokens[i-1], tokens[i+1])
-            tokens[i-1:i+2] = [result]  # Nahradenie i-1, i, i+1 výsledkom
-            i -= 1  # Vráť sa o jeden krok, aby sme skontrolovali novú sekvenciu
-        i += 1
+        # Spracovanie násobenia a delenia
+        i = 0
+        while i < len(tokens):
+            if tokens[i] in ['*', '/']:
+                if tokens[i] == '*':
+                    result = nasobenie(tokens[i-1], tokens[i+1])
+                else:
+                    result = delenie(tokens[i-1], tokens[i+1])
+                tokens[i-1:i+2] = [result]  # Nahradenie i-1, i, i+1 výsledkom
+                i -= 1  # Vráť sa o jeden krok, aby sme skontrolovali novú sekvenciu
+            i += 1
 
-    # Spracovanie sčítania a odčítania
-    i = 0
-    while i < len(tokens):
-        if tokens[i] in ['+', '-']:
-            if tokens[i] == '+':
-                result = scitanie(tokens[i-1], tokens[i+1])
-            else:
-                result = odcitanie(tokens[i-1], tokens[i+1])
-            tokens[i-1:i+2] = [result]
-            i -= 1
-        i += 1
+        # Spracovanie sčítania a odčítania
+        i = 0
+        while i < len(tokens):
+            if tokens[i] in ['+', '-']:
+                if tokens[i] == '+':
+                    result = scitanie(tokens[i-1], tokens[i+1])
+                else:
+                    result = odcitanie(tokens[i-1], tokens[i+1])
+                tokens[i-1:i+2] = [result]
+                i -= 1
+            i += 1
 
-    # Vraciame vysledok ako string, ak je celé číslo, zobrazuje bez desatinnej časti
-    result = round(tokens[0],6)
-    if result > sys.maxsize:
-        raise ValueError("Math Error")
-    if abs(result) < 1e-6:
-        result = 0
-    return str(int(result) if result == int(result) else result)
+        # Vraciame vysledok ako string, ak je celé číslo, zobrazuje bez desatinnej časti
+        result = round(tokens[0],6)
+        if result > sys.maxsize:
+            raise ValueError("Math Error")
+        if abs(result) < 1e-6:
+            result = 0
+        return str(int(result) if result == int(result) else result)
+    except Exception as e:
+        return "Math Error"
