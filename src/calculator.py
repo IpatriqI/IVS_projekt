@@ -449,12 +449,9 @@ class Ui_MainWindow(object):
     # Function for handling the button press - by keyboard
     def keyPressEvent(self, event):
         """
-        Handle the key press event.
-
-        This function is triggered when a key is pressed. It maps the key press event to the corresponding calculator button.
-        For example, if the '0' key is pressed, it is as if the '0' button on the calculator was pressed.
-
-        @param event: The key press event to handle.
+        @fn keyPressEvent
+        @brief Handles the key press.
+        @param event The key press event to handle.
         """
 
         key = event.key()
@@ -556,7 +553,7 @@ class Ui_MainWindow(object):
         """
         @fn retranslateUi
         @brief Translates the GUI.
-        @param MainWindow The main window to translate.
+        @param MainWindow The main window to translate.        
         """
 
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Calculator", None))
