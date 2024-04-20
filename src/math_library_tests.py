@@ -61,10 +61,11 @@ class TestMatematickaKniznica(unittest.TestCase):
         
 
     def test_eval_expr(self):
-        self.assertEqual(eval_expr("3 + 4 * 2"), 11)
-        self.assertEqual(eval_expr("10 / 2 - 1"), 4)
-        self.assertEqual(eval_expr("10 - 2 * 3"), 4)
-        self.assertEqual(eval_expr("10 * (2 - 3)"), -10)  # Test s odstranenou podporou zátvoriek zlyhá
+        self.assertEqual(eval_expr("3 + 4 * 2"), "11")
+        self.assertEqual(eval_expr("10 / 2 - 1"), "4")
+        self.assertEqual(eval_expr("10 - 2 * 3"), "4")
+        self.assertEqual(eval_expr("-6 - 6"), "-12")
+        self.assertEqual(eval_expr("10 * (2 - 3)"), "-10")  # Test s odstranenou podporou zátvoriek zlyhá
 
 if __name__ == '__main__':
     unittest.main()
