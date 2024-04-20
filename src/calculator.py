@@ -47,22 +47,27 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
 
-        # Buttons
+        # FONTS
+        # For buttons
         font = QFont()
         font.setFamilies([u"Comic Sans MS"])
         font.setPointSize(20)
         font.setBold(False)
 
+        # For display
         font1 = QFont()
         font1.setFamilies([u"Arial"])
         font1.setPointSize(36)
         font1.setBold(True)
 
+        # For help center
         font2 = QFont()
         font2.setFamilies([u"Comic Sans MS"])
         font2.setPointSize(12)
         font2.setBold(False)
+        # END OF FONTS
 
+        # Buttons
         self.Btn_No_1 = QPushButton(self.centralwidget, clicked = lambda: self.press_it('1'))
         self.Btn_No_1.setObjectName(u"Btn_No_1")
         self.Btn_No_1.setGeometry(QRect(30, 210, 60, 60))
@@ -588,13 +593,13 @@ class Ui_MainWindow(object):
 "hr { height: 1px; border-width: 0; }\n"
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
-"</style></head><body style=\" font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:700;\">Error Mesages:</span></p>\n"
+"</style></head><body style=\" font-family:'Comic Sans MS'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:700;\">Error Messages:</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic; text-decoration: underline;\">Math Error </span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt"
-                        "-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">--&gt; devision by zero or exceeded max. number</span></p>\n"
+                        "-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">--&gt; division by zero or exceeded max. number</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic; text-decoration: underline;\">Syntax Error</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">--&gt; incorent operation (eg. 5^ , 5+ ,5cos45)</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">--&gt; incorrect format (eg. 5^ , 5+ ,5cos45)</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:700;\">Correct format of input for operands: </span></p>\n"
 "<p style=\" margin-top:0px; margin"
@@ -606,12 +611,11 @@ class Ui_MainWindow(object):
                         "N</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">\u03c0 (Pi)	         </span><span style=\" font-size:12pt; font-style:italic;\">--&gt; N</span><span style=\" font-size:12pt;\">*\u03c0</span><span style=\" font-size:12pt;\">, \u03c0*</span><span style=\" font-size:12pt; font-style:italic; \">N, N</span><span style=\" font-size:12pt;\">*\u03c0*</span><span style=\" font-size:12pt; font-style:italic; \">N</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:700;\">Keyboard:</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">Enter, = --&gt; =</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-le"
                         "ft:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">Backspace --&gt; Del</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">Esc --&gt; AC (clear result)</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">Esc --&gt; AC (clears result)</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">1, 2, 3, ..., 9, 0 --&gt; 1, 2, 3, ..., 9, 0 </span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">. --&gt; .</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">+ --&gt; +</span></p>\n"
@@ -621,7 +625,7 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">/ --&gt; /</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">! --&gt; x!</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">P --&gt; </span><span style=\" font-size:12pt;\">\u03c0</span></p></body></html>", None))
-        self.Btn_Help_Close.setText(QCoreApplication.translate("MainWindow", u"Close", None))
+        self.Btn_Help_Close.setText(QCoreApplication.translate("MainWindow", u"Back", None))
 
 # Main function for running the GUI
 if __name__ == "__main__":
