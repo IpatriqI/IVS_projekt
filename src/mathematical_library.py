@@ -122,6 +122,8 @@ def eval_expr(expr):
 
         # Check for syntax errors
         for i in range(len(tokens) - 1):
+            if (tokens[i] in ['sin', 'cos', 'tan', 'cot']) and (i > 0 and isinstance(tokens[i-1], float)):
+                raise SyntaxError("Syntax Error")
             if tokens[i] in ['+', '-', '*', '/', '^', '√'] and tokens[i+1] in ['+', '-', '*', '/', '^', '√']:
                 raise SyntaxError("Syntax Error")
 
