@@ -522,6 +522,10 @@ class Ui_MainWindow(object):
                 self.Displayed = self.Display.text()
                 if self.Displayed[-3:] in ['cos', 'sin', 'tan']:
                     self.Displayed = self.Displayed[:-3]
+                elif self.Displayed[-10:] in ['Math Error']:
+                    self.Displayed = self.Displayed[:-10]
+                elif self.Displayed[-12:] in ['Syntax Error']:
+                    self.Displayed = self.Displayed[:-12]
                 else:
                     self.Displayed = self.Displayed[:-1]
                 if self.Displayed == '':
