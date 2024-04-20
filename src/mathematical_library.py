@@ -106,11 +106,20 @@ def eval_expr(expr):
         while i < len(tokens):
             if tokens[i] in ['+', '-']:
                 if tokens[i] == '+':
-                    result = scitanie(tokens[i-1], tokens[i+1])
+                    if i == 0:
+                        result = scitanie(0, tokens[i+1])
+                    else:
+                        result = scitanie(tokens[i-1], tokens[i+1])
                 else:
-                    result = odcitanie(tokens[i-1], tokens[i+1])
-                tokens[i-1:i+2] = [result]
-                i -= 1
+                    if i == 0:
+                        result = odcitanie(0, tokens[i+1])
+                    else:
+                        result = odcitanie(tokens[i-1], tokens[i+1])
+                if i > 0:
+                    tokens[i-1:i+2] = [result]
+                    i -= 1
+                else:
+                    tokens[i:i+2] = [result]
             i += 1
 
         # Vraciame vysledok ako string, ak je celé číslo, zobrazuje bez desatinnej časti
