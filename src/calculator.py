@@ -292,7 +292,7 @@ class Ui_MainWindow(object):
 "	border-radius: 7px;\n"
 "}\n"
 "QScrollBar::handle:horizontal:hover{	\n"
-"	background-color: rgb(255, 255, 255);\n"
+"	background-color: rgb(255, 157, 9);\n"
 "}\n"
 "QScrollBar::handle:horizontal:pressed {	\n"
 "	background-color: rgb(255, 157, 9);\n"
@@ -343,7 +343,50 @@ class Ui_MainWindow(object):
         self.scrollArea_Help = QScrollArea(self.centralwidget)
         self.scrollArea_Help.setObjectName(u"scrollArea_Help")
         self.scrollArea_Help.setGeometry(QRect(0, 0, 400, 500))
-        self.scrollArea_Help.setStyleSheet(u"color: white;background-color: rgb(170, 169, 172);")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.scrollArea_Help.sizePolicy().hasHeightForWidth())
+        self.scrollArea_Help.setSizePolicy(sizePolicy)
+        self.scrollArea_Help.setLayoutDirection(Qt.LeftToRight)
+        self.scrollArea_Help.setStyleSheet(u"QScrollBar:vertical {\n"
+"	border: none;\n"
+"    	background: rgb(63, 63, 63);\n"
+"	background-color: rgb(63, 63, 63);\n"
+"	border-radius: 0px;\n"
+" }\n"
+"QScrollBar::handle:vertical {	\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	min-height: 30px;\n"
+"	border-radius: 7px;\n"
+"}\n"
+"QScrollBar::handle:vertical:hover{	\n"
+"	background-color: rgb(255, 157, 9);\n"
+"}\n"
+"QScrollBar::handle:vertical:pressed {	\n"
+"	background-color: rgb(255, 157, 9);\n"
+"}\n"
+"\n"
+"\n"
+"QScrollBar::sub-line:vertical {\n"
+"	border: none;\n"
+"	background: none;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical {\n"
+"	border: none;\n"
+"	background: none;\n"
+"}\n"
+"QScrollBar::add-page:vertical {\n"
+"    	background: rgb(63, 63, 63);\n"
+"	width: 0px;\n"
+"}\n"
+"QScrollBar::sub-page:vertical {\n"
+"    	background: rgb(63, 63, 63);\n"
+"	width: 0px;\n"
+"}")
+        self.scrollArea_Help.setFrameShape(QFrame.Box)
+        self.scrollArea_Help.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.scrollArea_Help.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
@@ -351,6 +394,7 @@ class Ui_MainWindow(object):
         self.textBrowser = QTextBrowser(self.scrollAreaWidgetContents_2)
         self.textBrowser.setObjectName(u"textBrowser")
         self.textBrowser.setGeometry(QRect(10, 10, 375, 427))
+        self.textBrowser.setStyleSheet(u"color: white; background-color: rgb(63, 63, 63);")
         self.Btn_Help_Close = QPushButton(self.scrollAreaWidgetContents_2, clicked = lambda: self.press_it('Help_Close'))
         self.Btn_Help_Close.setObjectName(u"Btn_Help_Close")
         self.Btn_Help_Close.setGeometry(QRect(166, 452, 60, 30))
@@ -449,6 +493,7 @@ class Ui_MainWindow(object):
             self.press_it('=')
         elif key == Qt.Key_Escape:
             self.press_it('AC')
+            self.scrollArea_Help.hide()
         elif key == Qt.Key_Backspace: 
             self.press_it('Del')
         
@@ -543,28 +588,35 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:700;\">Error Mesages:</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic; text-decoration: underline;\">Math Error </span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt"
-                        "-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">it is caused by incorent operands (eg. 5^ , 5+ ,5cos45) or exceeded max. number (eg. 1000!)</span></p>\n"
+                        "-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">--&gt; devision by zero or exceeded max. number</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic; text-decoration: underline;\">Syntax Error</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">--&gt; incorent operation (eg. 5^ , 5+ ,5cos45)</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:700;\">Corect format of input for operands: </span><span style=\" font-size:12pt;\">(N = Number)</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">+, -, *, / 	     --&gt; </span><span style=\" font-size:12pt;\">N+N, N-N, N*N, N/N</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><spa"
-                        "n style=\" font-size:12pt;\">x!	     --&gt; N!</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">sinx, cosx, tanx  --&gt; sinN, cosN, tanN </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">x^n, n\u221ax	     --&gt; N^N, N\u221aN</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:700;\">Correct format of input for operands: </span></p>\n"
+"<p style=\" margin-top:0px; margin"
+                        "-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">(N = Number)</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">+, -, *, / 	         --&gt; </span><span style=\" font-size:12pt; font-style:italic\">N+N, N-N, N*N, N/N</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">x!	         --&gt; N!</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">sinx, cosx, tanx   --&gt; sinN, cosN, tanN </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">x^n, n\u221ax	         --&gt; N^N, N\u221a"
+                        "N</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">\u03c0 (Pi)	         </span><span style=\" font-size:12pt; font-style:italic;\">--&gt; N</span><span style=\" font-size:12pt;\">*\u03c0</span><span style=\" font-size:12pt;\">, \u03c0*</span><span style=\" font-size:12pt; font-style:italic; \">N, N</span><span style=\" font-size:12pt;\">*\u03c0*</span><span style=\" font-size:12pt; font-style:italic; \">N</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:700;\">Keyboard:</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic"
-                        ";\">Enter, = --&gt; evaluate</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">Backspace --&gt; Del</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">Enter, = --&gt; =</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-le"
+                        "ft:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">Backspace --&gt; Del</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">Esc --&gt; AC (clear result)</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">1, 2, 3, ..., 9, 0 --&gt; 1, 2, 3, ..., 9, 0 </span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">. --&gt; .</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><"
-                        "span style=\" font-size:12pt; font-style:italic;\">+ --&gt; +</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">- --&gt; -</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">+ --&gt; +</span></p>\n"
+"<p style=\" margin-top:"
+                        "0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">- --&gt; -</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">* --&gt; *</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">/ --&gt; /</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">! --&gt; x!</span></p></body></html>", None))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">! --&gt; x!</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-style:italic;\">P --&gt; </span><span style=\" font-size:12pt;\">\u03c0</span></p></body></html>", None))
         self.Btn_Help_Close.setText(QCoreApplication.translate("MainWindow", u"Close", None))
 
 # Main function for running the GUI
