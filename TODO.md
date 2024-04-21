@@ -6,6 +6,12 @@ Tvorba kalkulačky je rozdelená na dve vývojové vetvy (GUI a Math Lib).
 
 ### Math Lib
 - [ ] BUG: so záporným číslom nemožno operovať
+- [ ] Instalátor a odinstalátor
+- [ ] Profiling
+- [ ] Uživatelská příručka a Programova dokumentace
+- [ ] Makefile
+- [ ] snímek obrazovky debuggeru v matematické knihovně
+- [ ] screenshot programu
 
 ### Completed tasks ✓
 - [x] Pridať farby a tvary do GUI
