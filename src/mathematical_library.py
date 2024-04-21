@@ -152,7 +152,9 @@ def eval_expr(expr):
                 result = faktorial(tokens[i-1])
                 tokens[i-1:i+1] = [result]
             elif tokens[i] == '^':
-                if tokens[i-1] > sys.maxsize ** (1 / tokens[i+1]):
+                if tokens[i+1] == 0:
+                    result = 1
+                elif tokens[i-1] > sys.maxsize ** (1 / tokens[i+1]):
                     raise ValueError("Math Error")
                 result = mocnina(tokens[i-1], tokens[i+1])
                 tokens[i-1:i+2] = [result]
