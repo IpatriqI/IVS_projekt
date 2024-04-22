@@ -542,7 +542,11 @@ class Ui_MainWindow(object):
                     self.Display.setText(str(e))
             else:
                 if self.Displayed == '0':
-                    if pressed == 'sin' or pressed == 'cos' or pressed == 'tan' or pressed == '\u03c0' or pressed == '0':
+                    if (pressed == 'sin' or pressed == 'cos' or pressed == 'tan' or 
+                        pressed == '\u03c0' or pressed == '0' or 
+                        pressed == '1' or pressed == '2' or pressed == '3' or 
+                        pressed == '4' or pressed == '5' or pressed == '6' or 
+                        pressed == '7' or pressed == '8' or pressed == '9'):
                         self.Displayed = ''
                 self.Displayed += pressed
                 self.Display.setText(self.Displayed)
@@ -630,7 +634,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()
     MainWindow.setWindowTitle('Calculator')
-    MainWindow.setWindowIcon(QIcon('./icon/Calc-SEG_FAULT.ico'))
+    MainWindow.setWindowIcon(QIcon('Calc-SEG_FAULT.ico'))
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
