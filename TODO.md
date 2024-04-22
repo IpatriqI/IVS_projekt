@@ -11,6 +11,7 @@ Tvorba kalkulačky je rozdelená na dve vývojové vetvy (GUI a Math Lib).
 - [ ] Makefile
 - [ ] snímek obrazovky debuggeru v matematické knihovně
 - [ ] screenshot programu
+- [ ] Odtestovať projekt na poskytnutej VM (zákazník)
 
 ### Completed tasks ✓
 - [x] BUG: so záporným číslom nemožno operovať
