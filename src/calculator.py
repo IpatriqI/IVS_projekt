@@ -548,6 +548,8 @@ class Ui_MainWindow(object):
                         pressed == '4' or pressed == '5' or pressed == '6' or 
                         pressed == '7' or pressed == '8' or pressed == '9'):
                         self.Displayed = ''
+                elif self.Displayed == 'Math Error' or self.Displayed == 'Syntax Error':
+                    self.Displayed = ''
                 self.Displayed += pressed
                 self.Display.setText(self.Displayed)
             return self.Displayed
