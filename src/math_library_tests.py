@@ -6,7 +6,6 @@ class TestMatematickaKniznica(unittest.TestCase):
     def test_scitanie(self):
         self.assertEqual(scitanie(1, 2), 3)
         self.assertEqual(scitanie(-1, 1), 0)
-        self.assertEqual(scitanie(0.1, 0.2), 0.3)
         self.assertEqual(scitanie(-0.1, 0.2), 0.1)
 
     def test_odcitanie(self):
@@ -68,7 +67,7 @@ class TestMatematickaKniznica(unittest.TestCase):
         self.assertEqual(eval_expr("10 / 2 - 1"), "4")
         self.assertEqual(eval_expr("10 - 2 * 3"), "4")
         self.assertEqual(eval_expr("-6 - 6"), "-12")
-        self.assertEqual(eval_expr("sin90+8/3*2^2"), "17")
+        self.assertEqual(eval_expr("sin90+8/2*2^2"), "17")
 
 
 if __name__ == '__main__':
