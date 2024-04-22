@@ -9,8 +9,6 @@ Tvorba kalkulačky je rozdelená na dve vývojové vetvy (GUI a Math Lib).
 - [ ] Profiling
 - [ ] Uživatelská příručka a Programova dokumentace
 - [ ] Makefile
-- [ ] snímek obrazovky debuggeru v matematické knihovně
-- [ ] screenshot programu
 - [ ] Odtestovať projekt na poskytnutej VM (zákazník)
 
 ### Completed tasks ✓
@@ -22,3 +20,5 @@ Tvorba kalkulačky je rozdelená na dve vývojové vetvy (GUI a Math Lib).
 - [x] Pridať ikonu kalkulačky
 - [x] Status a menu bar
 - [x] Chybové hlášky Math Error a Syntax Error
+- [x] snímek obrazovky debuggeru v matematické knihovně
+- [x] screenshot programu
