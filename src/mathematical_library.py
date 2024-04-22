@@ -1,4 +1,4 @@
-## @file math_functions.py
+## @file mathematical_library.py
 #  @brief Implementace matematických funkcí.
 #
 #  Tento soubor obsahuje implementaci různých matematických funkcí,
