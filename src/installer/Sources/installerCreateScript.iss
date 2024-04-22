@@ -3,14 +3,14 @@
 
 #define MyAppName "Calculator"
 #define MyAppVersion "1"
-#define MyAppPublisher "kamosi-segmentation-faultu"
+#define MyAppPublisher "Kamosi segmentation faultu"
 #define MyAppURL "https://github.com/kamosi-segmentation-faultu/calculator"
 #define MyAppExeName "calculator.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{B05F8BA6-8187-45F3-8C90-2749F4CCEA0E}
+AppId={{60819BCE-9032-413B-85FF-956D1EDA8530}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
