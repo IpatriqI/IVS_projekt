@@ -629,6 +629,8 @@ if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()
+    MainWindow.setWindowTitle('Calculator')
+    MainWindow.setWindowIcon(QIcon('./icon/Calc-SEG_FAULT.ico'))
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
