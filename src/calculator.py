@@ -542,7 +542,7 @@ class Ui_MainWindow(object):
                     self.Display.setText(str(e))
             else:
                 if self.Displayed == '0':
-                    if pressed != '.':
+                    if pressed == 'sin' or pressed == 'cos' or pressed == 'tan' or pressed == '\u03c0' or pressed == '0':
                         self.Displayed = ''
                 self.Displayed += pressed
                 self.Display.setText(self.Displayed)
