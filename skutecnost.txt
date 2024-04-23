@@ -7,6 +7,7 @@ Rozdíly mezi skutečností a plánem
 
 2. Začali jsme pracovat na projektu později, než jsme plánovali.
 
-3. Nedodrželi jsme TDD, testy se vytvářeli až po vytvoření matematické knihovny.
+3. Některé testy byly vytvořeny dříve než funkce matematické knihovny
+    a některé později. TDD tedy nebyl dodržen.
 
 4. Rozdělení funkcí nebylo přesně dodržováno. Jeden z důvodů byla ztráta jednoho člena týmu.
