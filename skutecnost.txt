@@ -1,0 +1,12 @@
+xprochd00 xdekysp00 xlorenk00
+
+Rozdíly mezi skutečností a plánem
+
+1. Upustili jsme od některých funkcí co měla kalkulačka mít. 
+    Např. cotangens, Eulerovo číslo, status bar, menu bar.
+
+2. Začali jsme pracovat na projektu později, než jsme plánovali.
+
+3. Nedodrželi jsme TDD, testy se vytvářeli až po vytvoření matematické knihovny.
+
+4. Rozdělení funkcí nebylo přesně dodržováno. Jeden z důvodů byla ztráta jednoho člena týmu.
