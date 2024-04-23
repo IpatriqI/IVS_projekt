@@ -5,7 +5,6 @@ Tvorba kalkulačky je rozdelená na dve vývojové vetvy (GUI a Math Lib).
 
 
 ### Math Lib
-- [ ] Instalátor a odinstalátor
 - [ ] Profiling
 - [ ] Uživatelská příručka a Programova dokumentace
 - [ ] Makefile
@@ -22,3 +21,4 @@ Tvorba kalkulačky je rozdelená na dve vývojové vetvy (GUI a Math Lib).
 - [x] Chybové hlášky Math Error a Syntax Error
 - [x] snímek obrazovky debuggeru v matematické knihovně
 - [x] screenshot programu
+- [x] Instalátor a odinstalátor
