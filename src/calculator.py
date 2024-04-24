@@ -1,4 +1,3 @@
-""
 # Project: IVS - Calculator
 # File: calculator.py
 # Author: Patrik Dekýš (xdekysp00@stud.fit.vutbr.cz)
@@ -27,18 +26,16 @@ from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QStatusBar, QWidget, QTextBrowser)
 from mathematical_library import eval_expr # Function for evaluating the expressions
 
+##  @class Ui_MainWindow
+#   @brief This class represents the main window of the application.
+
 class Ui_MainWindow(object):
-    """
-    @class Ui_MainWindow
-    @brief This class represents the main window of the application.
-    """
+
+##  @fn setupUi
+#   @brief Sets up the UI for the main window.
+#   @param MainWindow The main window for which to set up the UI.
 
     def setupUi(self, MainWindow):
-        """
-        @fn setupUi
-        @brief Sets up the UI for the main window.
-        @param MainWindow The main window for which to set up the UI.
-        """
 
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -446,14 +443,11 @@ class Ui_MainWindow(object):
         QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.keyPressEvent = self.keyPressEvent # Enable key press event handling
 
-    # Function for handling the button press - by keyboard
+##  @fn keyPressEvent
+#   @brief Function for handling the button press - by keyboard
+#   @param event The key press event to handle.
     def keyPressEvent(self, event):
-        """
-        @fn keyPressEvent
-        @brief Handles the key press.
-        @param event The key press event to handle.
-        """
-
+        
         key = event.key()
         if self.scrollArea_Help.isHidden():
             if key == Qt.Key_0:
@@ -502,17 +496,13 @@ class Ui_MainWindow(object):
             if key == Qt.Key_Escape:
                 self.scrollArea_Help.hide()
         
-
-    # Function for handling the button press - by click
+##  @fn press_it
+#   @brief Function for handling the button press - by click
+#   @param pressed The button that was pressed.
+#   @return The displayed value.
     History = ''
     Displayed = '0'
     def press_it(self, pressed):
-        """
-        @fn press_it
-        @brief Handles the button press.
-        @param pressed The button that was pressed.
-        @return The displayed value.
-        """
 
         global Displayed, History
         if pressed == 'Help':
@@ -558,13 +548,10 @@ class Ui_MainWindow(object):
                 self.Display.setText(self.Displayed)
             return self.Displayed
 
-    # Function for translating the GUI
+##  @fn retranslateUi
+#   @brief Function for translating the GUI
+#   @param MainWindow The main window to translate.
     def retranslateUi(self, MainWindow):
-        """
-        @fn retranslateUi
-        @brief Translates the GUI.
-        @param MainWindow The main window to translate.        
-        """
 
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Calculator", None))
         self.Display.setText(QCoreApplication.translate("MainWindow", u"0", None))
