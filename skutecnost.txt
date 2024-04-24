@@ -10,4 +10,4 @@ Rozdíly mezi skutečností a plánem
 3. Některé testy byly vytvořeny dříve než funkce matematické knihovny
     a některé později. TDD tedy nebyl dodržen.
 
-4. Rozdělení funkcí nebylo přesně dodržováno. Jeden z důvodů byla ztráta jednoho člena týmu.
+4. Rozdělení úkolů nebylo přesně dodržováno. Jeden z důvodů byla ztráta jednoho člena týmu.
