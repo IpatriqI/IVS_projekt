@@ -1,0 +1,28 @@
+Protokol profilovania
+
+Zhrnutie výsledkov profilovania:
+
+Profilovanie odhalilo, ako sa čas vykonávania zvyšuje s veľkosťou dátového vstupu. Nižšie sú výsledky profilovania pre rôzne veľkosti vstupov.
+
+Veľkosť vstupu: 10
+Čas vykonávania: 0.000 sekundy
+Hlavné funkcie: smerodajna_odchylka, a matematické operácie ako scitanie, odcitanie, nasobenie, delenie, odmocnina.
+Čas je zanedbateľný pre malý počet vstupov.
+
+Veľkosť vstupu: 1,000
+Čas vykonávania: 0.004 sekundy
+Hlavné funkcie: smerodajna_odchylka, a matematické operácie ako scitanie, odcitanie, nasobenie, delenie, odmocnina.
+Významné funkcie, ktoré trvajú najviac času, zahŕňajú výpočty sumy a matematické operácie.
+
+Veľkosť vstupu: 1,000,000
+Čas vykonávania: 2.143 sekundy
+Hlavné funkcie: smerodajna_odchylka, a matematické operácie ako scitanie, odcitanie, nasobenie, delenie, odmocnina.
+Funkcia sum_data tiež trvá významnú časť celkového času spôsobenú repetitívnymi volaniami matematických funkcií.
+
+
+Miesta pre optimalizáciu:
+Optimalizácia výpočtu rozptylu a sumy
+Výpočet rozptylu a sumy je hlavným spotrebiteľom času, najmä pri veľkých dátových sadách. Môžeme zvážiť iné prístupy, ktoré sú optimalizované pre takéto výpočty, namiesto iteratívneho prístupu v čistom Python kóde.
+
+Optimalizácia matematických funkcií
+Keďže matematické operácie zaberajú významnú časť výpočtového času, mohlo by byť užitočné preskúmať, ako sú implementované v mathematical_library.py a zvážiť ich optimalizáciu, ako je napríklad využitie efektívnejších algoritmov alebo knižníc.

@@ -1,0 +1,4 @@
+xdekysp00 170 (GUI, inštalátor, mockup)
+xlorenk00 160 (matematická knihovna, testy matematickej knihovny, makefile, dokumentace)
+xprochd00 70 (základ matematické knohovny, profiling, makefile, uživatelská príručka)
+xbarlio00 0 ()
