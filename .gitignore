@@ -1,9 +1,0 @@
-__pycache__/
-.idea/
-*.pyc
-*.pyo
-*.pyd
-.DS_Store
-.venv/
-TEMP/
-Qt/
