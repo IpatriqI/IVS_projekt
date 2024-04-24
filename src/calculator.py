@@ -546,10 +546,11 @@ class Ui_MainWindow(object):
             else:
                 if self.Displayed == '0':
                     if (pressed == 'sin' or pressed == 'cos' or pressed == 'tan' or 
-                        pressed == '\u03c0' or pressed == '0' or 
+                        pressed == '\u03c0' or pressed == '0' or pressed == '-' or
                         pressed == '1' or pressed == '2' or pressed == '3' or 
                         pressed == '4' or pressed == '5' or pressed == '6' or 
-                        pressed == '7' or pressed == '8' or pressed == '9'):
+                        pressed == '7' or pressed == '8' or pressed == '9' or
+                        pressed == '+'):
                         self.Displayed = ''
                 elif self.Displayed == 'Math Error' or self.Displayed == 'Syntax Error':
                     self.Displayed = ''
