@@ -6,9 +6,8 @@ Tvorba kalkulačky je rozdelená na dve vývojové vetvy (GUI a Math Lib).
 
 ### Math Lib
 - [ ] Profiling
-- [ ] Uživatelská příručka a Programova dokumentace
+- [ ] Programova dokumentace
 - [ ] Makefile
-- [ ] Odtestovať projekt na poskytnutej VM (zákazník)
 
 ### Completed tasks ✓
 - [x] BUG: so záporným číslom nemožno operovať
@@ -22,3 +21,5 @@ Tvorba kalkulačky je rozdelená na dve vývojové vetvy (GUI a Math Lib).
 - [x] snímek obrazovky debuggeru v matematické knihovně
 - [x] screenshot programu
 - [x] Instalátor a odinstalátor
+- [x] Uživatelská příručka
+- [x] Odtestovať projekt na poskytnutej VM (zákazník)
