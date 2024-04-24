@@ -455,49 +455,52 @@ class Ui_MainWindow(object):
         """
 
         key = event.key()
-        if key == Qt.Key_0:
-            self.press_it('0')
-        elif key == Qt.Key_1:
-            self.press_it('1')
-        elif key == Qt.Key_2:
-            self.press_it('2')
-        elif key == Qt.Key_3:
-            self.press_it('3')
-        elif key == Qt.Key_4:
-            self.press_it('4')
-        elif key == Qt.Key_5:
-            self.press_it('5')
-        elif key == Qt.Key_6:
-            self.press_it('6')
-        elif key == Qt.Key_7:
-            self.press_it('7')
-        elif key == Qt.Key_8:
-            self.press_it('8')
-        elif key == Qt.Key_9:
-            self.press_it('9')
-        elif key == Qt.Key_Plus:
-            self.press_it('+')
-        elif key == Qt.Key_Minus:
-            self.press_it('-')
-        elif key == Qt.Key_Asterisk:
-            self.press_it('*')
-        elif key == Qt.Key_Slash:
-            self.press_it('/')
-        elif key == Qt.Key_Exclam:
-            self.press_it('!')
-        elif key == Qt.Key_Period:
-            self.press_it('.')
-        elif key == Qt.Key_P:
-            self.press_it('\u03c0')
-        elif key == Qt.Key_AsciiCircum: # Only US keyboard layout
-            self.press_it('^')
-        elif key == Qt.Key_Enter or key == Qt.Key_Equal or key == Qt.Key_Return:
-            self.press_it('=')
-        elif key == Qt.Key_Escape:
-            self.press_it('AC')
-            self.scrollArea_Help.hide()
-        elif key == Qt.Key_Backspace: 
-            self.press_it('Del')
+        if self.scrollArea_Help.isHidden():
+            if key == Qt.Key_0:
+                self.press_it('0')
+            elif key == Qt.Key_1:
+                self.press_it('1')
+            elif key == Qt.Key_2:
+                self.press_it('2')
+            elif key == Qt.Key_3:
+                self.press_it('3')
+            elif key == Qt.Key_4:
+                self.press_it('4')
+            elif key == Qt.Key_5:
+                self.press_it('5')
+            elif key == Qt.Key_6:
+                self.press_it('6')
+            elif key == Qt.Key_7:
+                self.press_it('7')
+            elif key == Qt.Key_8:
+                self.press_it('8')
+            elif key == Qt.Key_9:
+                self.press_it('9')
+            elif key == Qt.Key_Plus:
+                self.press_it('+')
+            elif key == Qt.Key_Minus:
+                self.press_it('-')
+            elif key == Qt.Key_Asterisk:
+                self.press_it('*')
+            elif key == Qt.Key_Slash:
+                self.press_it('/')
+            elif key == Qt.Key_Exclam:
+                self.press_it('!')
+            elif key == Qt.Key_Period:
+                self.press_it('.')
+            elif key == Qt.Key_P:
+                self.press_it('\u03c0')
+            elif key == Qt.Key_AsciiCircum: # Only US keyboard layout
+                self.press_it('^')
+            elif key == Qt.Key_Enter or key == Qt.Key_Equal or key == Qt.Key_Return:
+                self.press_it('=')
+            elif key == Qt.Key_Escape:
+                self.press_it('AC')
+            elif key == Qt.Key_Backspace: 
+                self.press_it('Del')
+        else:
+            if key == Qt.Key_Escape:
+                self.scrollArea_Help.hide()
         
 
     # Function for handling the button press - by click
