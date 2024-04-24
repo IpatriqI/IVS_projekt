@@ -1,13 +1,16 @@
 import sys
 from mathematical_library import delenie, nasobenie, odcitanie, scitanie, odmocnina
+import numpy as np
+import cProfile
+import pstats
 
 def smerodajna_odchylka(data):
     if len(data) < 2:
         raise ValueError("Na výpočet smerodajnej odchylky je potrebné aspoň dve hodnoty.")
     priemer = delenie(sum_data(data), len(data))
-    # Konvertujeme generátor na zoznam pred volaním sum_data
     variancia = delenie(sum_data([nasobenie(odcitanie(x, priemer), odcitanie(x, priemer)) for x in data]), len(data))
     return odmocnina(variancia, 2)
+
 
 def sum_data(items):
     total = items[0]
@@ -15,16 +18,18 @@ def sum_data(items):
         total = scitanie(total, item)
     return total
 
-def main():
-    try:
-        # Žiadame používateľa, aby zadal čísla oddelené medzerami
-        print("Zadajte čísla oddelené medzerami:")
-        data = [float(num) for num in input().strip().split()]
-
-        # Výpočet a výpis smerodajnej odchylky
-        print("Smerodajná odchylka:", smerodajna_odchylka(data))
-    except Exception as e:
-        print(f"Chyba: {e}")
+def profile_with_inputs(input_sizes):
+    for size in input_sizes:
+        data = np.random.standard_normal(size).tolist()
+        profiler = cProfile.Profile()
+        profiler.enable()
+        print(f"Smerodajna odchylka pre {size} prvkov: {smerodajna_odchylka(data)}")
+        profiler.disable()
+        stats = pstats.Stats(profiler).sort_stats('cumulative')
+        stats.print_stats()
+        print("\n\n")
 
 if __name__ == "__main__":
-    main()
+    input_sizes = [10, 1000, 1000000]  # Velkosti vstupov ako bolo požadované
+    profile_with_inputs(input_sizes)
+    input("Press Enter to end...")

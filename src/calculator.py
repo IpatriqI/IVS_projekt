@@ -1,11 +1,10 @@
 # Project: IVS - Calculator
 # File: calculator.py
-# Author: Patrik Dekýš (xdekysp00@stud.fit.vutbr.cz)
 
 # Description: This file contains the GUI of the calculator application. The GUI
 # takes inserted values as who string and evaluates them using the eval_expr(), 
 # which is a function from the mathematical_library.py file.
-""
+
 
 #===============================START-OF-FILE===================================
 
